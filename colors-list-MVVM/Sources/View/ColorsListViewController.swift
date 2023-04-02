@@ -12,7 +12,7 @@ class ColorsListViewController: UIViewController {
     // MARK: - Outlets
     
     private let tableView = UITableView()
-    private var viewModel: ColorListViewModelProtocol = ColorListViewModel()
+    private var viewModel: ColorListViewModelProtocol = ColorListNewViewModel()
     private let cellIdentifier = "MyCell"
     
     // MARK: - Lifecycle

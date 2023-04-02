@@ -15,6 +15,7 @@
 		073DDC8A29D99E250085E018 /* ColorListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073DDC8929D99E250085E018 /* ColorListModel.swift */; };
 		073DDC8C29D9A1C50085E018 /* ColorListViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073DDC8B29D9A1C50085E018 /* ColorListViewModelProtocol.swift */; };
 		073DDC8E29D9A3E70085E018 /* ColorListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073DDC8D29D9A3E70085E018 /* ColorListViewModel.swift */; };
+		073DDC9029D9BB230085E018 /* ColorListNewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073DDC8F29D9BB230085E018 /* ColorListNewViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		073DDC8929D99E250085E018 /* ColorListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorListModel.swift; sourceTree = "<group>"; };
 		073DDC8B29D9A1C50085E018 /* ColorListViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorListViewModelProtocol.swift; sourceTree = "<group>"; };
 		073DDC8D29D9A3E70085E018 /* ColorListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorListViewModel.swift; sourceTree = "<group>"; };
+		073DDC8F29D9BB230085E018 /* ColorListNewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorListNewViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				073DDC8B29D9A1C50085E018 /* ColorListViewModelProtocol.swift */,
+				073DDC8F29D9BB230085E018 /* ColorListNewViewModel.swift */,
 				073DDC8D29D9A3E70085E018 /* ColorListViewModel.swift */,
 			);
 			path = ViewModel;
@@ -194,6 +197,7 @@
 				073DDC8C29D9A1C50085E018 /* ColorListViewModelProtocol.swift in Sources */,
 				073DDC8229D99BE30085E018 /* ColorsListViewController.swift in Sources */,
 				073DDC8E29D9A3E70085E018 /* ColorListViewModel.swift in Sources */,
+				073DDC9029D9BB230085E018 /* ColorListNewViewModel.swift in Sources */,
 				073DDC6E29D999AF0085E018 /* AppDelegate.swift in Sources */,
 				073DDC7029D999AF0085E018 /* SceneDelegate.swift in Sources */,
 				073DDC8A29D99E250085E018 /* ColorListModel.swift in Sources */,

@@ -9,21 +9,19 @@
 /* Begin PBXBuildFile section */
 		073DDC6E29D999AF0085E018 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073DDC6D29D999AF0085E018 /* AppDelegate.swift */; };
 		073DDC7029D999AF0085E018 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073DDC6F29D999AF0085E018 /* SceneDelegate.swift */; };
-		073DDC7229D999AF0085E018 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073DDC7129D999AF0085E018 /* ViewController.swift */; };
-		073DDC7529D999AF0085E018 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 073DDC7329D999AF0085E018 /* Main.storyboard */; };
 		073DDC7729D999B00085E018 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 073DDC7629D999B00085E018 /* Assets.xcassets */; };
 		073DDC7A29D999B00085E018 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 073DDC7829D999B00085E018 /* LaunchScreen.storyboard */; };
+		073DDC8229D99BE30085E018 /* ColorsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073DDC8129D99BE30085E018 /* ColorsListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		073DDC6A29D999AF0085E018 /* colors-list-MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "colors-list-MVVM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		073DDC6D29D999AF0085E018 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		073DDC6F29D999AF0085E018 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		073DDC7129D999AF0085E018 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		073DDC7429D999AF0085E018 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		073DDC7629D999B00085E018 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		073DDC7929D999B00085E018 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		073DDC7B29D999B00085E018 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		073DDC8129D99BE30085E018 /* ColorsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +54,62 @@
 		073DDC6C29D999AF0085E018 /* colors-list-MVVM */ = {
 			isa = PBXGroup;
 			children = (
-				073DDC6D29D999AF0085E018 /* AppDelegate.swift */,
-				073DDC6F29D999AF0085E018 /* SceneDelegate.swift */,
-				073DDC7129D999AF0085E018 /* ViewController.swift */,
-				073DDC7329D999AF0085E018 /* Main.storyboard */,
-				073DDC7629D999B00085E018 /* Assets.xcassets */,
-				073DDC7829D999B00085E018 /* LaunchScreen.storyboard */,
-				073DDC7B29D999B00085E018 /* Info.plist */,
+				073DDC8729D99D1D0085E018 /* Sources */,
+				073DDC8629D99CFC0085E018 /* Resources */,
 			);
 			path = "colors-list-MVVM";
+			sourceTree = "<group>";
+		};
+		073DDC8329D99CE10085E018 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		073DDC8429D99CE90085E018 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				073DDC8129D99BE30085E018 /* ColorsListViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		073DDC8529D99CEF0085E018 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		073DDC8629D99CFC0085E018 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				073DDC7629D999B00085E018 /* Assets.xcassets */,
+				073DDC7B29D999B00085E018 /* Info.plist */,
+				073DDC7829D999B00085E018 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		073DDC8729D99D1D0085E018 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				073DDC8829D99D240085E018 /* App */,
+				073DDC8429D99CE90085E018 /* View */,
+				073DDC8329D99CE10085E018 /* Model */,
+				073DDC8529D99CEF0085E018 /* ViewModel */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		073DDC8829D99D240085E018 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				073DDC6D29D999AF0085E018 /* AppDelegate.swift */,
+				073DDC6F29D999AF0085E018 /* SceneDelegate.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +172,6 @@
 			files = (
 				073DDC7A29D999B00085E018 /* LaunchScreen.storyboard in Resources */,
 				073DDC7729D999B00085E018 /* Assets.xcassets in Resources */,
-				073DDC7529D999AF0085E018 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +182,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				073DDC7229D999AF0085E018 /* ViewController.swift in Sources */,
+				073DDC8229D99BE30085E018 /* ColorsListViewController.swift in Sources */,
 				073DDC6E29D999AF0085E018 /* AppDelegate.swift in Sources */,
 				073DDC7029D999AF0085E018 /* SceneDelegate.swift in Sources */,
 			);
@@ -147,14 +191,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		073DDC7329D999AF0085E018 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				073DDC7429D999AF0085E018 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		073DDC7829D999B00085E018 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -216,7 +252,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -270,7 +306,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -292,9 +328,10 @@
 				INFOPLIST_FILE = "colors-list-MVVM/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,9 +339,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "ti1ek.koszhanov.colors-list-MVVM";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -320,9 +360,10 @@
 				INFOPLIST_FILE = "colors-list-MVVM/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -330,9 +371,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "ti1ek.koszhanov.colors-list-MVVM";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -9,82 +9,98 @@ import UIKit
 
 class ColorsListViewController: UIViewController {
     
-    // MARK: - Outlets
-    
-    private let tableView = UITableView()
-    private var viewModel: ColorListViewModelProtocol = ColorListNewViewModel()
     private let cellIdentifier = "MyCell"
     
+    // MARK: - Outlets
+    
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        tableView.frame = view.frame
+        return tableView
+    }()
+    
+    var viewModel: ViewModelType
+    
+    // MARK: - Initialization
+    
+    init(viewModel: ViewModelType) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+    
     // MARK: - Lifecycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel.updateView = {[weak self] in
-            self?.tableView.reloadData()
+        setupHierarchy()
+        
+        viewModel.update = {
+            self.tableView.reloadData()
         }
-        setupTable()
     }
-   
+    
     // MARK: - Setup
     
-    private func setupTable() {
+    private func setupHierarchy() {
         view.addSubview(tableView)
-        
-        tableView.dataSource = self
-        tableView.delegate = self
-        
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
-        tableView.frame = view.frame
     }
 }
 
-    // MARK: - UITableViewDataSource
+// MARK: - UITableViewDataSource
 
 extension ColorsListViewController: UITableViewDataSource {
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.numberOfSections
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfRowsInSection(section)
+        return viewModel.model.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let model = viewModel.model[indexPath.row]
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         
-        let cellText = viewModel.titleForRow(indexPath)
+        let cellText = model.name
         
         var contentConfiguration = cell.defaultContentConfiguration()
         contentConfiguration.text = cellText
         cell.contentConfiguration = contentConfiguration
         
-        let colorRGB = viewModel.backgroundColorForCell(indexPath)
-        let customColor = UIColor(red: colorRGB.red, green: colorRGB.green, blue: colorRGB.blue, alpha: 1)
+        let customColor = UIColor(red: model.red,
+                                  green: model.green,
+                                  blue: model.blue,
+                                  alpha: 1)
         
         cell.contentView.backgroundColor = customColor
         return cell
     }
-    
-    @objc private func actionButtonTapped() {
-        viewModel.actionButtonTapped()
-    }
 }
 
-    // MARK: - UITableViewDelegate
+// MARK: - UITableViewDelegate
 
 extension ColorsListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.cellTapped(indexPath)
+        tableView.deselectRow(at: indexPath, animated: true)
+        viewModel.copyAndAddColor(by: indexPath.row)
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let actionButton = UIButton()
-        actionButton.setTitle(viewModel.titleForActionButton, for: .normal)
+        actionButton.setTitle("Shuffle", for: .normal)
         actionButton.setTitleColor(.black, for: .normal)
         actionButton.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
         return actionButton
+    }
+    
+    @objc private func actionButtonTapped() {
+        viewModel.shuffleItems()
     }
 }

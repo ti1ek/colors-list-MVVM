@@ -2,63 +2,51 @@
 //  ColorListNewViewModel.swift
 //  colors-list-MVVM
 //
-//  Created by Zhuldyz Bukeshova on 02.04.2023.
+//  Created by Tilek Koszhanov on 02.04.2023.
 //
 
-import UIKit
+import Foundation
 
-final class ColorListNewViewModel: ColorListViewModelProtocol {
+protocol ViewModelType {
+    var update: (() -> Void)? { get set }
+    var model: [ColorInfo] { get set }
     
-    var numberOfSections: Int {
-        return 1
-    }
-    
-    var titleForActionButton: String {
-        return "Shuffle colors"
-    }
-    
-    var updateView: (() -> Void)?
-    
-    lazy var numberOfRowsInSection: (Int) -> Int = getNumberOfRowsInSection
-    
-    lazy var titleForRow: ((IndexPath) -> String) = getTitleForRow
-    
-    lazy var backgroundColorForCell: (IndexPath) -> (red: CGFloat, green: CGFloat, blue: CGFloat) = getBackgroundColorForCell
-    
-    private var model: ColorListModel = ColorListModel()
-
-    func actionButtonTapped() {
-        shuffleItems()
-    }
-    
-    func cellTapped(_ index: IndexPath) {
-        copyAndAddColor(by: index.row)
-    }
-    
-    private func getNumberOfRowsInSection(_ section: Int) -> Int {
-        return model.colorList.count
-    }
-    
-    private func getTitleForRow(at indexPath: IndexPath) -> String {
-        let color = model.colorList[indexPath.row]
-        return color.name
-    }
-    
-    private func getBackgroundColorForCell(at indexPath: IndexPath) -> (red: CGFloat, green: CGFloat, blue: CGFloat) {
-        let color = model.colorList[indexPath.row]
-        let resultColor: (red: CGFloat, green: CGFloat, blue: CGFloat) = (red: color.red, green: color.green, blue: color.blue)
-        return resultColor
-    }
-    
-    private func shuffleItems() {
-        model.shuffleItems()
-        updateView?()
-    }
-    
-    private func copyAndAddColor(by index: Int) {
-        let color = model.colorList[index]
-        model.addColor(color)
-        updateView?()
-    }
+    func shuffleItems()
+    func copyAndAddColor(by index: Int)
+    func addNewRandomColor()
 }
 
+final class ColorListNewViewModel: ViewModelType {
+    
+    var update: (() -> Void)?
+    
+    var model: [ColorInfo] = [
+        ColorInfo(name: "Custom Red", red: 1, green: 0, blue: 0),
+        ColorInfo(name: "Custom Green", red: 0, green: 1, blue: 0),
+        ColorInfo(name: "Custom Blue", red: 0, green: 0, blue: 1)
+    ] {
+        didSet {
+            update?()
+        }
+    }
+    
+    func shuffleItems() {
+        model.shuffle()
+    }
+    
+    func copyAndAddColor(by index: Int) {
+        if model.indices.contains(index) {
+            model.append(model[index])
+        } else {
+            print("Такого индекса нет в массиве")
+        }
+    }
+    
+    func addNewRandomColor() {
+        let newColor = ColorInfo(name: "Random Color",
+                                 red: CGFloat.random(in: 0...1),
+                                 green: CGFloat.random(in: 0...1),
+                                 blue: CGFloat.random(in: 0...1))
+        model.append(newColor)
+    }
+}
